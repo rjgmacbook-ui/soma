@@ -13,8 +13,9 @@ interface TechniqueConfig {
 
 interface Phase {
   label: string
-  duration: number
-  scale: number
+  duration: number  // how long to stay in this phase (seconds)
+  scale: number     // target circle scale for this phase
+  animDuration: number  // how long the circle transition should take
 }
 
 const TECHNIQUES: Record<Technique, TechniqueConfig> = {
@@ -22,28 +23,28 @@ const TECHNIQUES: Record<Technique, TechniqueConfig> = {
     name: '4-7-8',
     description: 'Calming breath that activates the parasympathetic nervous system',
     phases: [
-      { label: 'Inhale', duration: 4, scale: 1.4 },
-      { label: 'Hold', duration: 7, scale: 1.4 },
-      { label: 'Exhale', duration: 8, scale: 1.0 },
+      { label: 'Inhale',  duration: 4,  scale: 1.4, animDuration: 4 },
+      { label: 'Hold',    duration: 7,  scale: 1.4, animDuration: 0.05 },
+      { label: 'Exhale',  duration: 8,  scale: 1.0, animDuration: 8 },
     ],
   },
   'box': {
     name: 'Box Breathing',
     description: 'Equal-ratio breathing for balance and focus',
     phases: [
-      { label: 'Inhale', duration: 4, scale: 1.4 },
-      { label: 'Hold', duration: 4, scale: 1.4 },
-      { label: 'Exhale', duration: 4, scale: 1.0 },
-      { label: 'Hold', duration: 4, scale: 1.0 },
+      { label: 'Inhale',  duration: 4, scale: 1.4, animDuration: 4 },
+      { label: 'Hold',    duration: 4, scale: 1.4, animDuration: 0.05 },
+      { label: 'Exhale',  duration: 4, scale: 1.0, animDuration: 4 },
+      { label: 'Hold',    duration: 4, scale: 1.0, animDuration: 0.05 },
     ],
   },
   'physiological-sigh': {
     name: 'Physiological Sigh',
     description: 'Double inhale + long exhale — fastest known way to reduce stress',
     phases: [
-      { label: 'Inhale deeply', duration: 3, scale: 1.3 },
-      { label: 'Sniff (top off)', duration: 1.5, scale: 1.45 },
-      { label: 'Long exhale', duration: 8, scale: 1.0 },
+      { label: 'Inhale deeply',   duration: 3,   scale: 1.3,  animDuration: 3 },
+      { label: 'Sniff (top off)', duration: 1.5, scale: 1.45, animDuration: 1.5 },
+      { label: 'Long exhale',     duration: 8,   scale: 1.0,  animDuration: 8 },
     ],
   },
 }
@@ -88,13 +89,9 @@ export function BreathingGuide() {
 
   const config = TECHNIQUES[technique]
   const phase = config.phases[phaseIdx]
-  const progress = phase ? elapsed / phase.duration : 0
 
-  const circleScale = phase
-    ? isRunning
-      ? 1.0 + (phase.scale - 1.0) * Math.min(progress, 1)
-      : 1.0
-    : 1.0
+  const targetScale = isRunning ? phase.scale : 1.0
+  const animDuration = isRunning ? phase.animDuration : 0.6
 
   return (
     <div className="breathing-guide">
@@ -120,22 +117,20 @@ export function BreathingGuide() {
 
       {/* Breathing Circle */}
       <div className="breathing-guide__circle-wrap">
-        {/* Outer ring */}
         <motion.div
           className="breathing-guide__ring"
-          animate={{ scale: isRunning ? circleScale * 1.2 : 1, opacity: isRunning ? 0.2 : 0.08 }}
-          transition={{ duration: 0.3, ease: 'linear' }}
+          animate={{ scale: targetScale * 1.2, opacity: isRunning ? 0.2 : 0.08 }}
+          transition={{ duration: animDuration, ease: 'easeInOut' }}
         />
 
-        {/* Main circle */}
         <motion.div
           className="breathing-guide__circle"
-          animate={{ scale: circleScale }}
-          transition={{ duration: 0.3, ease: 'linear' }}
+          animate={{ scale: targetScale }}
+          transition={{ duration: animDuration, ease: 'easeInOut' }}
         >
           <AnimatePresence mode="wait">
             <motion.span
-              key={isRunning ? phase.label : 'start'}
+              key={isRunning ? `${phaseIdx}-${phase.label}` : 'start'}
               className="breathing-guide__phase-label"
               initial={{ opacity: 0, y: 4 }}
               animate={{ opacity: 1, y: 0 }}

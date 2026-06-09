@@ -270,7 +270,12 @@ Themes applied via `data-mode="down" | "up"` on `<html>`, cascading through CSS 
 ### Bugs
 [x] The icon and title. Make sure they are center aligned. Right now it looks like the title is at bottom.
 [x] The icon, title, the main section heading and the calm/energize switch are all not properly aligned. Make sure there is uniformity.
+[x] In the breathe section, there is no animation for exhale. Inhale has expanding animation (correct), hold has to have no animation ( it needs to retain the expanded animation), exhale needs to slowly contract to the original position ( currently no animation )
+[x] During breathing, the expanded section is overlapping with the text above and below
+[x] In the 'Home' page. Remove the calm/energize switch. Also remove the quotes. 
 
 ### Enhancements
-<!-- Add enhancements here -->
-
+[x] In gallery no functionality in place to navigate to next img. 
+[x] Add a slide show mode with slow transitions
+[x] Add a full screen mode. It should scale the entire screen
+[x] Add a separate page for quotes. Let quotes randomly be featured for around 30s and shift to a different quote. Let there be a nice list of all quotes below that. Come up with a nice way of showing this

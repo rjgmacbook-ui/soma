@@ -1,9 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useMode } from '../contexts/ModeContext'
-import { useQuotes } from '../hooks/useQuotes'
-import { QuoteCard } from '../components/Quotes/QuoteCard'
-import { ModeToggle } from '../components/Layout/ModeToggle'
 import './Home.css'
 
 const NAV_CARDS = [
@@ -11,7 +8,6 @@ const NAV_CARDS = [
     to: '/breathe',
     icon: '◎',
     title: 'Breathe',
-    desc: 'Guided breathing techniques',
     downLabel: 'Slow the nervous system',
     upLabel: 'Find your rhythm',
   },
@@ -19,7 +15,6 @@ const NAV_CARDS = [
     to: '/gallery',
     icon: '⬡',
     title: 'Gallery',
-    desc: 'Soothing visual space',
     downLabel: 'Rest your eyes here',
     upLabel: 'Find your spark',
   },
@@ -27,15 +22,20 @@ const NAV_CARDS = [
     to: '/journal',
     icon: '◈',
     title: 'Journal',
-    desc: 'Write what\'s present',
     downLabel: 'Let it out safely',
     upLabel: 'Capture this energy',
+  },
+  {
+    to: '/quotes',
+    icon: '❝',
+    title: 'Quotes',
+    downLabel: 'Words to ground you',
+    upLabel: 'Words to move you',
   },
   {
     to: '/resources',
     icon: '♬',
     title: 'Listen',
-    desc: 'Curated audio resources',
     downLabel: 'Let sound hold you',
     upLabel: 'Music to move you',
   },
@@ -53,7 +53,6 @@ const cardAnim = {
 
 export default function Home() {
   const { mode } = useMode()
-  const { quotes } = useQuotes(mode)
 
   return (
     <motion.div
@@ -63,7 +62,6 @@ export default function Home() {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.4 }}
     >
-      {/* Header */}
       <motion.header
         className="home__header"
         initial={{ opacity: 0, y: -8 }}
@@ -81,23 +79,6 @@ export default function Home() {
         </p>
       </motion.header>
 
-      {/* Mode toggle (prominent) */}
-      <motion.div
-        className="home__toggle-wrap"
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 0.15 }}
-      >
-        <p className="home__toggle-label">
-          {mode === 'down' ? 'Currently calming ↓' : 'Currently energizing ↑'}
-        </p>
-        <ModeToggle />
-      </motion.div>
-
-      {/* Quote */}
-      <QuoteCard quotes={quotes} />
-
-      {/* Nav cards */}
       <motion.section
         className="home__cards"
         variants={container}

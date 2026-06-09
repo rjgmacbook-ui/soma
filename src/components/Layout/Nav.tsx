@@ -3,11 +3,12 @@ import { useMode } from '../../contexts/ModeContext'
 import './Nav.css'
 
 const navItems = [
-  { to: '/',          icon: HomeIcon,     label: 'Home' },
-  { to: '/gallery',   icon: GalleryIcon,  label: 'Gallery' },
-  { to: '/breathe',   icon: BreatheIcon,  label: 'Breathe' },
-  { to: '/journal',   icon: JournalIcon,  label: 'Journal' },
-  { to: '/resources', icon: ResourcesIcon, label: 'Resources' },
+  { to: '/',          icon: HomeIcon,      label: 'Home' },
+  { to: '/gallery',   icon: GalleryIcon,   label: 'Gallery' },
+  { to: '/breathe',   icon: BreatheIcon,   label: 'Breathe' },
+  { to: '/journal',   icon: JournalIcon,   label: 'Journal' },
+  { to: '/quotes',    icon: QuotesIcon,    label: 'Quotes' },
+  { to: '/resources', icon: ResourcesIcon, label: 'Listen' },
 ]
 
 export function Nav() {
@@ -74,6 +75,15 @@ function JournalIcon() {
       <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
       <line x1="9" y1="9" x2="15" y2="9" />
       <line x1="9" y1="13" x2="13" y2="13" />
+    </svg>
+  )
+}
+
+function QuotesIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" />
+      <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" />
     </svg>
   )
 }

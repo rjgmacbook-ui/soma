@@ -6,6 +6,7 @@ import Gallery from './pages/Gallery'
 import Breathing from './pages/Breathing'
 import Journal from './pages/Journal'
 import Resources from './pages/Resources'
+import Quotes from './pages/Quotes'
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/breathe" element={<Breathing />} />
             <Route path="/journal" element={<Journal />} />
+            <Route path="/quotes" element={<Quotes />} />
             <Route path="/resources" element={<Resources />} />
           </Route>
         </Routes>
