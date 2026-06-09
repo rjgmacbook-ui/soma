@@ -1,85 +1,136 @@
 .home {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 48px;
 }
 
-/* ─── HEADER ─────────────────────────────────────────── */
-.home__header {
+/* ─── CLOCK ──────────────────────────────────────────── */
+.home__clock {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
+  padding-top: 8px;
 }
 
-.home__greeting {
+.home__clock-time {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  line-height: 1;
+}
+
+.home__clock-hours,
+.home__clock-minutes {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 10vw, 6rem);
+  font-weight: 300;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  transition: color var(--transition-speed) ease;
+}
+
+.home__clock-sep {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 9vw, 5.5rem);
+  font-weight: 300;
+  color: var(--accent);
+  align-self: baseline;
+  margin: 0 1px;
+  transition: color var(--transition-speed) ease;
+}
+
+.home__clock-sep--sm {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: var(--muted);
+  margin: 0 2px;
+  padding-bottom: 4px;
+}
+
+.home__clock-seconds {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 300;
+  color: var(--muted);
+  padding-bottom: 4px;
+  min-width: 2.2ch;
+  transition: color var(--transition-speed) ease;
+}
+
+.home__clock-ampm {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  font-weight: 400;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  padding-bottom: 6px;
+  margin-left: 6px;
+  transition: color var(--transition-speed) ease;
+}
+
+.home__clock-meta {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 8px;
 }
 
-.home__logo {
-  font-size: 2rem;
-  color: var(--accent);
-  line-height: 1;
-  animation: pulse-soft 4s ease-in-out infinite;
+.home__clock-day {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-2);
+  letter-spacing: 0.04em;
   transition: color var(--transition-speed) ease;
 }
 
-.home__title {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 300;
-  letter-spacing: 0.16em;
-  color: var(--text);
+.home__clock-dot {
+  color: var(--muted);
+}
+
+.home__clock-date {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--muted);
   transition: color var(--transition-speed) ease;
 }
 
-.home__subtitle {
+.home__clock-greeting {
   font-family: var(--font-display);
   font-size: 1rem;
   font-style: italic;
   font-weight: 300;
   color: var(--muted);
-  line-height: 1.6;
   letter-spacing: 0.01em;
-  max-width: 360px;
   transition: color var(--transition-speed) ease;
 }
 
-/* ─── TOGGLE WRAP ────────────────────────────────────── */
-.home__toggle-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.home__toggle-label {
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: lowercase;
-  color: var(--muted);
-  transition: color var(--transition-speed) ease;
-}
-
-/* ─── NAV CARDS ──────────────────────────────────────── */
+/* ─── NAV CARDS (2-column square grid) ──────────────── */
 .home__cards {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--card-gap);
   transition: gap var(--transition-speed) ease;
 }
 
+@media (min-width: 640px) {
+  .home__cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .home__nav-card {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 18px;
+  justify-content: center;
+  gap: 14px;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius-card);
-  padding: 20px 24px;
+  padding: 24px 16px;
   text-decoration: none;
   color: var(--text);
+  aspect-ratio: 1 / 1;
+  text-align: center;
   transition:
     background var(--transition-speed) ease,
     border-color var(--transition-speed) ease,
@@ -90,26 +141,14 @@
 .home__nav-card:hover {
   border-color: var(--accent);
   box-shadow: 0 6px 24px var(--glow);
-  transform: translateX(4px);
+  transform: translateY(-3px);
 }
 
 .home__nav-icon {
-  font-size: 1.4rem;
+  font-size: 2.4rem;
   color: var(--accent);
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--card-2);
-  border-radius: 12px;
-  flex-shrink: 0;
-  transition: background var(--transition-speed) ease, color var(--transition-speed) ease;
-}
-
-.home__nav-body {
-  flex: 1;
-  min-width: 0;
+  line-height: 1;
+  transition: color var(--transition-speed) ease;
 }
 
 .home__nav-title {
@@ -117,26 +156,13 @@
   font-size: 0.95rem;
   font-weight: 500;
   color: var(--text);
-  margin-bottom: 4px;
   letter-spacing: 0.01em;
   transition: color var(--transition-speed) ease;
 }
 
 .home__nav-desc {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--muted);
   line-height: 1.4;
   transition: color var(--transition-speed) ease;
-}
-
-.home__nav-arrow {
-  font-size: 1rem;
-  color: var(--muted);
-  transition: color 200ms ease, transform 200ms ease;
-  flex-shrink: 0;
-}
-
-.home__nav-card:hover .home__nav-arrow {
-  color: var(--accent);
-  transform: translateX(4px);
 }

@@ -1,5 +1,35 @@
+/* ─── OUTER WRAPPER (caps the whole app at 1200px) ──── */
+.app-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100dvh;
+  position: relative;
+}
+
+/* ─── SHELL (flex row on desktop) ───────────────────── */
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+@media (min-width: 1024px) {
+  .app-shell {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+/* ─── RIGHT PANE ─────────────────────────────────────── */
+.app-shell__right {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+}
+
+/* ─── MODE TOGGLE ────────────────────────────────────── */
 .app-shell__topbar {
-  position: fixed;
+  position: absolute;
   top: 20px;
   right: 20px;
   z-index: 200;

@@ -273,9 +273,12 @@ Themes applied via `data-mode="down" | "up"` on `<html>`, cascading through CSS 
 [x] In the breathe section, there is no animation for exhale. Inhale has expanding animation (correct), hold has to have no animation ( it needs to retain the expanded animation), exhale needs to slowly contract to the original position ( currently no animation )
 [x] During breathing, the expanded section is overlapping with the text above and below
 [x] In the 'Home' page. Remove the calm/energize switch. Also remove the quotes. 
+[x] Remove the 'add image' 
 
 ### Enhancements
 [x] In gallery no functionality in place to navigate to next img. 
 [x] Add a slide show mode with slow transitions
 [x] Add a full screen mode. It should scale the entire screen
 [x] Add a separate page for quotes. Let quotes randomly be featured for around 30s and shift to a different quote. Let there be a nice list of all quotes below that. Come up with a nice way of showing this
+[x] Remove the branding from the 'Home' page and instead just show a cool way to show time
+[x] Replace the long horizontal tile cards in the 'Home' page with Square or Rectangular cards. 

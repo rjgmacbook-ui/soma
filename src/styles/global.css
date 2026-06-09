@@ -108,14 +108,8 @@ a {
 }
 
 @media (min-width: 1024px) {
-  .app-shell {
-    flex-direction: row;
-  }
-
   .page-content {
     padding: 40px 48px 48px;
-    margin-left: 240px;
-    max-width: 1100px;
   }
 }
 

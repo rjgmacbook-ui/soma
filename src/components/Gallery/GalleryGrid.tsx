@@ -128,7 +128,6 @@ export function GalleryGrid({ items, loading }: Props) {
           </>
         )}
 
-        {items.length > 0 && <PlaceholderCard label="Add image" delay={0} minHeight={160} />}
       </div>
 
       {/* Lightbox */}
