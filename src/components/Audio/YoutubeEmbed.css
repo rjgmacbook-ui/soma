@@ -1,0 +1,64 @@
+.yt-embed {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  transition:
+    background var(--transition-speed) ease,
+    border-color var(--transition-speed) ease;
+}
+
+.yt-embed__header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.yt-embed__title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--text);
+  transition: color var(--transition-speed) ease;
+}
+
+.yt-embed__desc {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.5;
+  transition: color var(--transition-speed) ease;
+}
+
+.yt-embed__frame-wrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 62%; /* slightly taller than 16:9 so playlist panel sits beside the video */
+  height: 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .yt-embed__frame-wrap {
+    padding-bottom: 56.25%; /* back to 16:9 on mobile — list panel appears as overlay */
+  }
+}
+
+.yt-embed__frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+.yt-embed__error {
+  font-size: 0.8rem;
+  color: var(--muted);
+  padding: 12px 0;
+  font-style: italic;
+}

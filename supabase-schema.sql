@@ -93,3 +93,24 @@ insert into audio_resources (title, url, description, type, mode) values
   ('The Social Network OST — Trent Reznor & Atticus Ross', null, 'Forward-driving electronic score', 'score', 'up'),
   ('Your Rainy Day Playlist', null, 'Curated for winding down', 'playlist', 'down'),
   ('Morning Energy Mix', null, 'Upbeat tracks to activate your system', 'playlist', 'up');
+
+
+-- ─── MIGRATION: Gallery types v2 ─────────────────────────────────────────────
+-- Run this if you already created the gallery_items table with the old types.
+
+alter table gallery_items
+  drop constraint if exists gallery_items_type_check;
+
+alter table gallery_items
+  add constraint gallery_items_type_check
+  check (type in ('random', 'sport', 'film', 'tv', 'music', 'people'));
+
+alter table gallery_items
+  add column if not exists context_name text;
+-- context_name usage by type:
+--   tv     → TV show name  (e.g. "Breaking Bad")
+--   film   → Film title    (e.g. "Interstellar")
+--   music  → Artist / album
+--   sport  → Team / event
+--   people → Person's name
+--   random → leave null

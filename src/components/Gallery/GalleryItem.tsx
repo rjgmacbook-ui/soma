@@ -28,6 +28,7 @@ export function GalleryItemCard({ item, onClick, index }: Props) {
         />
         <div className="gallery-item__overlay">
           <span className="gallery-item__type">{item.type}</span>
+          {item.context_name && <span className="gallery-item__context">{item.context_name}</span>}
           {item.title && <span className="gallery-item__title">{item.title}</span>}
         </div>
       </div>

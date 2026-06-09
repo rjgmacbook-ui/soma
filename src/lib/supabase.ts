@@ -14,11 +14,14 @@ export interface JournalEntry {
   created_at: string
 }
 
+export type GalleryItemType = 'random' | 'sport' | 'film' | 'tv' | 'music' | 'people'
+
 export interface GalleryItem {
   id: string
   url: string
   title?: string
-  type: 'wallpaper' | 'album' | 'poster' | 'sport' | 'athlete'
+  type: GalleryItemType
+  context_name?: string
   mode_preference: 'down' | 'up' | 'both'
   created_at: string
 }

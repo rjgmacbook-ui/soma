@@ -168,9 +168,14 @@ export function GalleryGrid({ items, loading }: Props) {
                 />
               </AnimatePresence>
 
-              {current.title && (
-                <p className="gallery-lightbox__title">{current.title}</p>
-              )}
+              <div className="gallery-lightbox__meta">
+                {current.context_name && (
+                  <p className="gallery-lightbox__subtitle">{current.context_name}</p>
+                )}
+                {current.title && (
+                  <p className="gallery-lightbox__title">{current.title}</p>
+                )}
+              </div>
 
               {/* Counter */}
               {items.length > 1 && (
