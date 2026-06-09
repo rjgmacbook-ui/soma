@@ -1,0 +1,13 @@
+.app-shell__topbar {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 200;
+}
+
+@media (min-width: 1024px) {
+  .app-shell__topbar {
+    top: 40px;
+    right: 40px;
+  }
+}

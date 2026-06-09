@@ -1,0 +1,31 @@
+.content-card {
+  display: block;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 24px;
+  cursor: default;
+  transition:
+    background var(--transition-speed) ease,
+    border-color var(--transition-speed) ease,
+    box-shadow 200ms ease;
+  text-align: left;
+  text-decoration: none;
+  color: var(--text);
+  width: 100%;
+}
+
+button.content-card {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.content-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.content-card:hover {
+  box-shadow: 0 8px 32px var(--glow), 0 2px 8px rgba(0,0,0,0.3);
+  border-color: var(--accent);
+}

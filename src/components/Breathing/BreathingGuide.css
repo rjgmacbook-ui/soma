@@ -1,0 +1,149 @@
+.breathing-guide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 24px 0;
+}
+
+/* ─── TABS ───────────────────────────────────────────── */
+.breathing-guide__tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.breathing-guide__tab {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition:
+    background var(--transition-speed) ease,
+    color var(--transition-speed) ease,
+    border-color var(--transition-speed) ease;
+}
+
+.breathing-guide__tab.active,
+.breathing-guide__tab:hover {
+  background: var(--card);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.breathing-guide__desc {
+  font-size: 0.875rem;
+  color: var(--muted);
+  text-align: center;
+  max-width: 320px;
+  line-height: 1.6;
+  transition: color var(--transition-speed) ease;
+}
+
+/* ─── CIRCLE ─────────────────────────────────────────── */
+.breathing-guide__circle-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 240px;
+  height: 240px;
+}
+
+.breathing-guide__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  transition: border-color var(--transition-speed) ease;
+}
+
+.breathing-guide__circle {
+  position: relative;
+  z-index: 1;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, var(--card-2), var(--card));
+  border: 1.5px solid var(--accent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  box-shadow:
+    0 0 40px var(--glow),
+    inset 0 0 20px rgba(0,0,0,0.3);
+  transition: border-color var(--transition-speed) ease;
+}
+
+.breathing-guide__phase-label {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text);
+  transition: color var(--transition-speed) ease;
+}
+
+.breathing-guide__countdown {
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  font-weight: 500;
+  transition: color var(--transition-speed) ease;
+}
+
+/* ─── PHASE CHIPS ────────────────────────────────────── */
+.breathing-guide__phases {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.breathing-guide__phase-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--card);
+  border: 1px solid var(--border);
+  transition:
+    background var(--transition-speed) ease,
+    border-color var(--transition-speed) ease;
+}
+
+.breathing-guide__phase-chip.active {
+  background: var(--card-2);
+  border-color: var(--accent);
+}
+
+.breathing-guide__phase-name {
+  font-size: 0.75rem;
+  color: var(--text-2);
+  transition: color var(--transition-speed) ease;
+}
+
+.breathing-guide__phase-dur {
+  font-size: 0.7rem;
+  color: var(--muted);
+  font-weight: 500;
+  transition: color var(--transition-speed) ease;
+}
+
+.breathing-guide__phase-chip.active .breathing-guide__phase-name {
+  color: var(--accent);
+}
+
+.breathing-guide__btn {
+  min-width: 120px;
+}

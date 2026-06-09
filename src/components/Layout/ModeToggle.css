@@ -1,0 +1,62 @@
+.mode-toggle {
+  display: inline-flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.mode-toggle__track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 168px;
+  height: 40px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  transition: background var(--transition-speed) ease, border-color var(--transition-speed) ease;
+}
+
+.mode-toggle__thumb {
+  position: absolute;
+  top: 3px;
+  width: 80px;
+  height: 34px;
+  background: var(--accent);
+  border-radius: var(--radius-pill);
+  transition:
+    transform var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1),
+    background var(--transition-speed) ease;
+  left: 3px;
+  box-shadow: 0 2px 8px var(--glow);
+}
+
+.mode-toggle.up .mode-toggle__thumb {
+  transform: translateX(82px);
+}
+
+.mode-toggle__label {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  color: var(--muted);
+  transition: color var(--transition-speed) ease;
+  user-select: none;
+}
+
+.mode-toggle__label.active {
+  color: var(--bg);
+}
+
+.mode-toggle.transitioning .mode-toggle__track {
+  pointer-events: none;
+}

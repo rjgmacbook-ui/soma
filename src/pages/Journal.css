@@ -1,0 +1,21 @@
+.journal-page {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.journal-page__history {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.journal-page__history-title {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color var(--transition-speed) ease;
+}
