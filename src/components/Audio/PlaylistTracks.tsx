@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { YTTrack } from '../../hooks/useYoutubePlaylist'
 import './PlaylistTracks.css'
@@ -12,10 +11,6 @@ interface Props {
 }
 
 export function PlaylistTracks({ tracks, loading, error, activeVideoId, onSelect }: Props) {
-  const [expanded, setExpanded] = useState(false)
-
-  const visible = expanded ? tracks : tracks.slice(0, 8)
-
   if (loading) {
     return (
       <div className="playlist-tracks">

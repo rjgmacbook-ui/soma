@@ -1,4 +1,5 @@
-import { useEffect, useRef, RefObject } from 'react'
+import { useEffect, useRef } from 'react'
+import type { RefObject } from 'react'
 import { loadYoutubeApi } from '../lib/youtubeApi'
 
 export function useYoutubePlayer(
