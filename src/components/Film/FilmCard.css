@@ -1,0 +1,67 @@
+.film-card {
+  display: block;
+  width: 100%;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  background: none;
+  padding: 0;
+  break-inside: avoid;
+  transition: border-color 200ms ease;
+}
+
+.film-card:hover {
+  border-color: var(--accent);
+}
+
+.film-card__img-wrap {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.film-card__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 400ms ease;
+}
+
+.film-card:hover .film-card__img {
+  transform: scale(1.04);
+}
+
+.film-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 55%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  opacity: 0;
+  transition: opacity 250ms ease;
+}
+
+.film-card:hover .film-card__overlay {
+  opacity: 1;
+}
+
+.film-card__type {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.film-card__name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.3;
+}

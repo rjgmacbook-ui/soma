@@ -3,6 +3,7 @@ import { ModeProvider } from './contexts/ModeContext'
 import { AppShell } from './components/Layout/AppShell'
 import Home from './pages/Home'
 import Gallery from './pages/Gallery'
+import Film from './pages/Film'
 import Breathing from './pages/Breathing'
 import Journal from './pages/Journal'
 import Resources from './pages/Resources'
@@ -16,6 +17,7 @@ export default function App() {
           <Route element={<AppShell />}>
             <Route path="/" element={<Home />} />
             <Route path="/gallery" element={<Gallery />} />
+            <Route path="/film" element={<Film />} />
             <Route path="/breathe" element={<Breathing />} />
             <Route path="/journal" element={<Journal />} />
             <Route path="/quotes" element={<Quotes />} />

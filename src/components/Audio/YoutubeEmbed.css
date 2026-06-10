@@ -1,50 +1,59 @@
+/* ── Card shell — fixed height, flex column, nothing escapes ── */
 .yt-embed {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  padding: 24px;
+  height: 540px;
+  overflow: hidden;
+  padding: 14px;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius-card);
+  box-sizing: border-box;
   transition:
     background var(--transition-speed) ease,
     border-color var(--transition-speed) ease;
 }
 
+/* ── Header — never shrinks ── */
 .yt-embed__header {
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
+  margin-bottom: 10px;
 }
 
 .yt-embed__title {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   font-weight: 400;
   color: var(--text);
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   transition: color var(--transition-speed) ease;
 }
 
 .yt-embed__desc {
-  font-size: 0.82rem;
+  font-size: 0.72rem;
   color: var(--muted);
-  line-height: 1.5;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   transition: color var(--transition-speed) ease;
 }
 
+/* ── iframe (default playlist view) — never shrinks ── */
 .yt-embed__frame-wrap {
+  flex-shrink: 0;
   position: relative;
   width: 100%;
-  padding-bottom: 62%; /* slightly taller than 16:9 so playlist panel sits beside the video */
+  padding-bottom: 56.25%;
   height: 0;
-  border-radius: 10px;
+  border-radius: 8px;
   overflow: hidden;
-}
-
-@media (max-width: 640px) {
-  .yt-embed__frame-wrap {
-    padding-bottom: 56.25%; /* back to 16:9 on mobile — list panel appears as overlay */
-  }
 }
 
 .yt-embed__frame {
@@ -53,12 +62,82 @@
   width: 100%;
   height: 100%;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
+}
+
+/* ── YT Player API div (active track) — never shrinks ── */
+.yt-embed__player {
+  flex-shrink: 0;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.yt-embed__player iframe {
+  width: 100% !important;
+  height: 100% !important;
+  border: none;
+}
+
+/* ── prev / next controls — never shrinks ── */
+.yt-embed__controls {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.yt-embed__ctrl-btn {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition:
+    background var(--transition-speed) ease,
+    color var(--transition-speed) ease,
+    border-color var(--transition-speed) ease;
+}
+
+.yt-embed__ctrl-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.yt-embed__ctrl-btn:disabled {
+  opacity: 0.2;
+  cursor: default;
+}
+
+.yt-embed__now-playing {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--accent);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  opacity: 0.85;
+  transition: color var(--transition-speed) ease;
 }
 
 .yt-embed__error {
-  font-size: 0.8rem;
+  flex-shrink: 0;
+  font-size: 0.75rem;
   color: var(--muted);
-  padding: 12px 0;
+  padding: 8px 0;
   font-style: italic;
 }

@@ -114,3 +114,13 @@ alter table gallery_items
 --   sport  → Team / event
 --   people → Person's name
 --   random → leave null
+
+-- ─── Film items ────────────────────────────────────────────────────────────────
+create table if not exists film_items (
+  id               uuid primary key default gen_random_uuid(),
+  url              text not null,
+  name             text not null,
+  type             text not null check (type in ('still', 'poster')),
+  mode_preference  text not null default 'both' check (mode_preference in ('down', 'up', 'both')),
+  created_at       timestamptz not null default now()
+);

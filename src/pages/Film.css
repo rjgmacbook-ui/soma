@@ -1,0 +1,44 @@
+.film-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.film-filter__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition:
+    background var(--transition-speed) ease,
+    color var(--transition-speed) ease,
+    border-color var(--transition-speed) ease;
+}
+
+.film-filter__chip:hover {
+  background: var(--card);
+  color: var(--text);
+  border-color: var(--text-2);
+}
+
+.film-filter__chip.active {
+  background: var(--card);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.film-filter__count {
+  font-size: 0.7rem;
+  color: inherit;
+  opacity: 0.6;
+}

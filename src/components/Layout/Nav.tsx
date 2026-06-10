@@ -5,6 +5,7 @@ import './Nav.css'
 const navItems = [
   { to: '/',          icon: HomeIcon,      label: 'Home' },
   { to: '/gallery',   icon: GalleryIcon,   label: 'Gallery' },
+  { to: '/film',      icon: FilmIcon,      label: 'Film' },
   { to: '/breathe',   icon: BreatheIcon,   label: 'Breathe' },
   { to: '/journal',   icon: JournalIcon,   label: 'Journal' },
   { to: '/quotes',    icon: QuotesIcon,    label: 'Quotes' },
@@ -84,6 +85,21 @@ function QuotesIcon() {
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z" />
       <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z" />
+    </svg>
+  )
+}
+
+function FilmIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="2.18" />
+      <line x1="7" y1="2" x2="7" y2="22" />
+      <line x1="17" y1="2" x2="17" y2="22" />
+      <line x1="2" y1="12" x2="22" y2="12" />
+      <line x1="2" y1="7" x2="7" y2="7" />
+      <line x1="2" y1="17" x2="7" y2="17" />
+      <line x1="17" y1="17" x2="22" y2="17" />
+      <line x1="17" y1="7" x2="22" y2="7" />
     </svg>
   )
 }

@@ -34,6 +34,17 @@ export interface Quote {
   created_at: string
 }
 
+export type FilmItemType = 'still' | 'poster'
+
+export interface FilmItem {
+  id: string
+  url: string
+  name: string
+  type: FilmItemType
+  mode_preference: 'down' | 'up' | 'both'
+  created_at: string
+}
+
 export interface AudioResource {
   id: string
   title: string
